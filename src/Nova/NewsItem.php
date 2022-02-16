@@ -5,6 +5,7 @@ namespace Kraenkvisuell\NovaCmsNews\Nova;
 use Illuminate\Http\Request;
 use Kraenkvisuell\NovaCms\Facades\ContentBlock;
 use Kraenkvisuell\NovaCmsMedia\MediaLibrary;
+use Kraenkvisuell\NovaCmsNews\Nova\Filters\Published;
 use Kraenkvisuell\NovaCmsPortfolio\Models\Artist;
 use Kraenkvisuell\NovaCmsPortfolio\Nova\Artist as NovaArtist;
 use Kraenkvisuell\NovaCmsPortfolio\Nova\Slideshow as NovaSlideshow;
@@ -106,7 +107,7 @@ class NewsItem extends Resource
             //     ->required()
             //     ->onlyOnForms(),
 
-            Boolean::make('Published', 'is_published'),
+            Boolean::make(__('Veröffentlicht'), 'is_published'),
 
             Text::make('link', 'link')
                 ->onlyOnForms(),
@@ -121,6 +122,13 @@ class NewsItem extends Resource
             //     ->sketch()
             //     ->hideFromDetail(),
 
+        ];
+    }
+
+    public function filters(Request $request)
+    {
+        return [
+            new Published,
         ];
     }
 }
