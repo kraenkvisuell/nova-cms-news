@@ -28,6 +28,7 @@ class NewsItem extends Model implements Sortable
     protected $guarded = [];
 
     protected $casts = [
+        'robots' => 'array',
         'main_content' => BlocksCast::class,
     ];
 

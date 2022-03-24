@@ -2,26 +2,23 @@
 
 namespace Kraenkvisuell\NovaCmsNews\Nova;
 
+use Eminiarts\Tabs\Tabs;
 use Illuminate\Http\Request;
 use Kraenkvisuell\NovaCms\Facades\ContentBlock;
 use Kraenkvisuell\NovaCmsMedia\MediaLibrary;
 use Kraenkvisuell\NovaCmsNews\Nova\Filters\Published;
-use Kraenkvisuell\NovaCmsPortfolio\Models\Artist;
-use Kraenkvisuell\NovaCmsPortfolio\Nova\Artist as NovaArtist;
-use Kraenkvisuell\NovaCmsPortfolio\Nova\Slideshow as NovaSlideshow;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Resource;
 use Manogi\Tiptap\Tiptap;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
-use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
-use Timothyasp\Color\Color;
+use Eminiarts\Tabs\TabsOnEdit;
+use Kraenkvisuell\NovaCms\Tabs\Seo;
 
 class NewsItem extends Resource
 {
     use HasSortableRows;
+    use TabsOnEdit;
 
     public static $model = \Kraenkvisuell\NovaCmsNews\Models\NewsItem::class;
 
@@ -50,7 +47,9 @@ class NewsItem extends Resource
     {
         $uploadOnly = config('nova-cms-news.media.upload_only') ?: false;
 
-        return [
+        $tabs = [];
+
+        $tabs[__('nova-cms::pages.content')] = [
             MediaLibrary::make(__('nova-cms-news::news_items.main_image'), 'main_image')
                 ->uploadOnly($uploadOnly),
 
@@ -121,7 +120,12 @@ class NewsItem extends Resource
             // Color::make(__('nova-cms-portfolio::portfolio.background_color'), 'bgcolor')
             //     ->sketch()
             //     ->hideFromDetail(),
+        ];
 
+        $tabs[__('nova-cms::seo.seo')] = Seo::make();
+        
+        return [
+            (new Tabs(static::singularLabel(), $tabs))->withToolbar(),
         ];
     }
 
