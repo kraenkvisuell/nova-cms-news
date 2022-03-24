@@ -59,6 +59,12 @@ class NewsItem extends Resource
             Text::make(__('nova-cms::pages.title'), 'title')
                 ->translatable(),
 
+            Text::make(__('nova-cms::pages.slug'), 'slug')
+                ->required()
+                ->rules('required')
+                ->hideFromDetail(),
+
+
             Tiptap::make(__('nova-cms-news::news_items.abstract'), 'abstract')
                 ->translatable(),
 
