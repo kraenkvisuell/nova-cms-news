@@ -62,7 +62,7 @@ class NewsItem extends Resource
             Text::make(__('nova-cms::pages.slug'), 'slug')
                 ->required()
                 ->rules('required')
-                ->hideFromDetail(),
+                ->onlyOnForms(),
 
 
             Tiptap::make(__('nova-cms-news::news_items.abstract'), 'abstract')
