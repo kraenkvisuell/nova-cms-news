@@ -74,6 +74,12 @@ class NewsItem extends Resource
 
         $tabs[__('nova-cms::pages.content')][] = Boolean::make(__('Veröffentlicht'), 'is_published');
 
+        // if (config('nova-cms-news.with-portfolio')) {
+        //     $tabs[__('nova-cms::pages.content')][] = BelongsTo::make('Artist', 'artist', NovaArtist::class)
+        //         ->placeholder('choose artist')
+        //         ->nullable();
+        // }
+
         // NovaBelongsToDepend::make('Project', 'slideshow', NovaSlideshow::class)
         //     ->placeholder('choose project')
         //     ->optionsResolve(function ($artist) {
