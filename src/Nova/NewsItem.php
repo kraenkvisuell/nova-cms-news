@@ -11,12 +11,12 @@ use Kraenkvisuell\NovaCmsMedia\MediaLibrary;
 use Kraenkvisuell\NovaCmsNews\Nova\Filters\Published;
 use Kraenkvisuell\NovaCmsPortfolio\Models\Artist;
 use Kraenkvisuell\NovaCmsPortfolio\Nova\Artist as NovaArtist;
+use KraenkVisuell\NovaSortable\Traits\HasSortableRows;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
 use Manogi\Tiptap\Tiptap;
-use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 class NewsItem extends Resource
 {
@@ -34,6 +34,11 @@ class NewsItem extends Resource
     public function title()
     {
         return $this->resource->title;
+    }
+
+    public static function sortableHasDropdown()
+    {
+        return config('nova-cms-news.with_sortable_dropdown') ?: false;
     }
 
     public static function label()
