@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7a4061e7c18b283aa05a900aac528f",
+    "content-hash": "6a21f06b823fed8f7135499cb01a7ce4",
     "packages": [
         {
             "name": "brick/math",
@@ -1138,21 +1138,19 @@
         },
         {
             "name": "kraenkvisuell/nova-sortable",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kraenkvisuell/nova-sortable.git",
-                "reference": "7ef60041d37638fa4e9f329d12a0005f6a0694bd"
+                "reference": "baadb6423187e380cb1f011ef570cab598c43318"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kraenkvisuell/nova-sortable/zipball/7ef60041d37638fa4e9f329d12a0005f6a0694bd",
-                "reference": "7ef60041d37638fa4e9f329d12a0005f6a0694bd",
+                "url": "https://api.github.com/repos/kraenkvisuell/nova-sortable/zipball/baadb6423187e380cb1f011ef570cab598c43318",
+                "reference": "baadb6423187e380cb1f011ef570cab598c43318",
                 "shasum": ""
             },
             "require": {
-                "laravel/nova": "^3.0",
-                "optimistdigital/nova-translations-loader": "^3.0.0",
                 "php": ">=7.3.0",
                 "spatie/eloquent-sortable": "^3.10.0|^4.0"
             },
@@ -1181,7 +1179,7 @@
                 "nova"
             ],
             "support": {
-                "source": "https://github.com/kraenkvisuell/nova-sortable/tree/v3.1.0"
+                "source": "https://github.com/kraenkvisuell/nova-sortable/tree/v3.1.2"
             },
             "funding": [
                 {
@@ -1189,7 +1187,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-22T14:32:49+00:00"
+            "time": "2022-04-25T09:13:32+00:00"
         },
         {
             "name": "laravel/framework",
