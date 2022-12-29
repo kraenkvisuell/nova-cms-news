@@ -30,6 +30,7 @@ class NewsItem extends Model implements Sortable
     protected $casts = [
         'robots' => 'array',
         'main_content' => BlocksCast::class,
+        'publish_date' => 'date',
     ];
 
     public $contentBlockFields = [
@@ -114,5 +115,14 @@ class NewsItem extends Model implements Sortable
         if ($this->slideshow) {
             return $this->slideshow->title;
         }
+    }
+
+    public function getNiceDate()
+    {
+        if ($this->publish_date) {
+            return $this->publish_date->format('d.m.Y');
+        }
+
+        return $this->created_at->format('d.m.Y');
     }
 }

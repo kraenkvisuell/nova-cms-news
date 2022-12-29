@@ -14,6 +14,7 @@ use Kraenkvisuell\NovaCmsPortfolio\Nova\Artist as NovaArtist;
 use KraenkVisuell\NovaSortable\Traits\HasSortableRows;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
 use Manogi\Tiptap\Tiptap;
@@ -78,6 +79,8 @@ class NewsItem extends Resource
         ];
 
         $tabs[__('nova-cms::pages.content')][] = Boolean::make(__('Veröffentlicht'), 'is_published');
+
+        $tabs[__('nova-cms::pages.content')][] = Date::make(__('Datum'), 'publish_date');
 
         // if (config('nova-cms-news.with-portfolio')) {
         //     $tabs[__('nova-cms::pages.content')][] = BelongsTo::make('Artist', 'artist', NovaArtist::class)
