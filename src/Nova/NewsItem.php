@@ -12,7 +12,6 @@ use Kraenkvisuell\NovaCmsNews\Nova\Filters\Published;
 use Kraenkvisuell\NovaCmsPortfolio\Models\Artist;
 use Kraenkvisuell\NovaCmsPortfolio\Nova\Artist as NovaArtist;
 use KraenkVisuell\NovaSortable\Traits\HasSortableRows;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
