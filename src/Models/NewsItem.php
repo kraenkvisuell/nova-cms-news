@@ -44,6 +44,8 @@ class NewsItem extends Model implements Sortable
         'browser_title',
         'meta_description',
         'meta_keywords',
+        'og_title',
+        'og_description',
     ];
 
     public function artist()

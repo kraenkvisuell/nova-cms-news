@@ -5,6 +5,7 @@ namespace Kraenkvisuell\NovaCmsNews\Nova;
 use Eminiarts\Tabs\Tabs;
 use Eminiarts\Tabs\TabsOnEdit;
 use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Kraenkvisuell\NovaCms\Facades\ContentBlock;
 use Kraenkvisuell\NovaCms\Tabs\Seo;
 use Kraenkvisuell\NovaCmsMedia\MediaLibrary;
@@ -151,5 +152,15 @@ class NewsItem extends Resource
         return [
             new Published,
         ];
+    }
+
+    public static function redirectAfterUpdate(NovaRequest $request, $resource)
+    {
+        return '/resources/news-items';
+    }
+
+    public static function redirectAfterCreate(NovaRequest $request, $resource)
+    {
+        return '/resources/news-items';
     }
 }
