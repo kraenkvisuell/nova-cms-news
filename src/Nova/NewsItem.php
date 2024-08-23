@@ -32,6 +32,8 @@ class NewsItem extends Resource
 
     public static $perPageOptions = [500, 1000];
 
+    public static $trafficCop = false;
+
     public function title()
     {
         return $this->resource->title;
